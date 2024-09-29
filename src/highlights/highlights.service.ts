@@ -17,7 +17,7 @@ export class HighlightsService {
   }
 
   findOne(id: number): IHighlight {
-    const item = this.highlights.find(highlight => highlight.id === id);
+    const item = this.highlights.find(highlight => highlight.id == id);
     if (!item) {
       throw new NotFoundException(`Highlight with ID ${id} not found`);
     }
@@ -25,7 +25,7 @@ export class HighlightsService {
   }
 
   update(id: number, highlight: Partial<IHighlight>): IHighlight {
-    const index = this.highlights.findIndex(highlight => highlight.id === id);
+    const index = this.highlights.findIndex(highlight => highlight.id == id);
     if (index === -1) {
       throw new NotFoundException(`Highlight with ID ${id} not found`);
     }
@@ -34,7 +34,7 @@ export class HighlightsService {
   }
 
   delete(id: number): void {
-    const index = this.highlights.findIndex(highlight => highlight.id === id);
+    const index = this.highlights.findIndex(highlight => highlight.id == id);
     if (index === -1) {
       throw new NotFoundException(`Highlight with ID ${id} not found`);
     }
